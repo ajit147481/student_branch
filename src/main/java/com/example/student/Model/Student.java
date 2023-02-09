@@ -1,9 +1,8 @@
-package com.example.student;
+package com.example.student.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.student.Model.BranchName;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,6 +17,11 @@ public class Student {
     private int id;
     private String name;
     private int rollno;
+    @Enumerated(value = EnumType.STRING)
     private BranchName branchName;
     private int marks;
+    @ManyToOne
+    @JoinColumn
+    @JsonIgnoreProperties("studentList")
+    private Branch branch;
 }
