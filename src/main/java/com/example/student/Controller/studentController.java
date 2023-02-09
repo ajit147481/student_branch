@@ -30,4 +30,9 @@ public class studentController {
         studentService.addStudent(student);
         return new ResponseEntity<>("branch updated successfully", HttpStatus.OK);
     }
+    @GetMapping("/get_rollno")
+    public ResponseEntity<List<Integer>> get_rollno(){
+        List<Integer> rollnoList=studentService.getStudentsRollNo();
+        return new ResponseEntity<>(rollnoList,HttpStatus.OK);
+    }
 }
