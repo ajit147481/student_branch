@@ -54,4 +54,9 @@ public class StudentService {
         }
         return rollnoList;
     }
+
+    public int find_Grant() {
+        List<Branch> branchList=branchRepository.findAll(Sort.by(Sort.Direction.DESC,"passing_students"));
+        return branchList.get(0).getGrant();
+    }
 }

@@ -35,4 +35,9 @@ public class studentController {
         List<Integer> rollnoList=studentService.getStudentsRollNo();
         return new ResponseEntity<>(rollnoList,HttpStatus.OK);
     }
+    @GetMapping("/get_max_Grant")
+    public ResponseEntity<Integer> find_grant(){
+        int grant=studentService.find_Grant();
+        return new ResponseEntity<>(grant,HttpStatus.OK);
+    }
 }
